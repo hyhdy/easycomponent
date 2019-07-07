@@ -1,0 +1,55 @@
+if(loginComponentAlone.toBoolean()){
+    //作为独立app运行
+    apply plugin: 'com.android.application'
+}else{
+    //作为lib运行
+    apply plugin: 'com.android.library'
+}
+
+
+android {
+    compileSdkVersion compile_sdk_version.toInteger()
+
+    defaultConfig {
+        if(loginComponentAlone.toBoolean()){
+            //只有作为独立app运行时才需要设置applicationId
+            applicationId "com.hyh.login_component"
+        }
+        minSdkVersion min_sdk_version.toInteger()
+        targetSdkVersion target_sdk_version.toInteger()
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    sourceSets{
+        main{
+            //作为独立组件运行和作为lib运行时需要使用不同到清单文件
+            if(loginComponentAlone.toBoolean()){
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            }else{
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:${support_version}"
+    implementation "com.android.support.constraint:constraint-layout:${constraint_layout_version}"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation project(':base_library')
+}
