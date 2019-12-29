@@ -2,10 +2,9 @@ package com.hyh.login_component;
 
 import android.content.Context;
 import android.content.Intent;
+import com.hyh.base_library.component.login.service.ILoginService;
 
-import com.hyh.base_library.compoService.ILoginCompoService;
-
-public class LoginService implements ILoginCompoService {
+public class LoginService implements ILoginService {
     @Override
     public void skipToLoginActivity(Context context) {
         Intent intent = new Intent(context,LoginActivity.class);

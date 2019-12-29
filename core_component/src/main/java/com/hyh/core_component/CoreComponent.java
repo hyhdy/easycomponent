@@ -1,11 +1,11 @@
 package com.hyh.core_component;
+import com.hyh.base_library.component.core.ICoreComponent;
+import com.hyh.base_library.component.core.service.ICoreService;
 
-import com.hyh.base_library.ComServiceFactory;
-import com.hyh.base_library.compoService.IAppComponent;
+public class CoreComponent implements ICoreComponent {
 
-public class CoreComponent implements IAppComponent {
     @Override
-    public void initialize() {
-        ComServiceFactory.getInstance().setCoreService(new CoreService());
+    public ICoreService getCoreService() {
+        return new CoreService();
     }
 }
