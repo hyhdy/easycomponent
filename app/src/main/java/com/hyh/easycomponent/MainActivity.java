@@ -5,14 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.hyh.base_library.component.core.adapter.CoreServiceAdapter;
-import com.hyh.base_library.component.login.adapter.LoginServiceAdapter;
+import com.hyh.base_library.component.core.proxy.CoreServiceProxy;
+import com.hyh.base_library.component.login.proxy.LoginServiceProxy;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTvSkipLogin;
     private TextView mTvSkipCore;
-    private LoginServiceAdapter mLoginServiceAdapter = new LoginServiceAdapter();
-    private CoreServiceAdapter mCoreServiceAdapter = new CoreServiceAdapter();
+    private LoginServiceProxy mLoginServiceAdapter = new LoginServiceProxy();
+    private CoreServiceProxy mCoreServiceAdapter = new CoreServiceProxy();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mTvSkipCore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CoreServiceAdapter coreServiceAdapter = new CoreServiceAdapter();
+                CoreServiceProxy coreServiceAdapter = new CoreServiceProxy();
                 //跳转到core组件
                 mCoreServiceAdapter.skipToCoreActivity(MainActivity.this);
             }

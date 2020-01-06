@@ -4,10 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.hyh.base_library.component.login.adapter.LoginServiceAdapter;
+import com.hyh.base_library.component.login.proxy.LoginServiceProxy;
 
 public class CoreActivity extends AppCompatActivity {
-    private LoginServiceAdapter mLoginServiceAdapter = new LoginServiceAdapter();
+    private LoginServiceProxy mLoginServiceAdapter = new LoginServiceProxy();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

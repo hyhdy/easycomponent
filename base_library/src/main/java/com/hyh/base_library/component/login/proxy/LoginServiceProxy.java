@@ -1,4 +1,4 @@
-package com.hyh.base_library.component.login.adapter;
+package com.hyh.base_library.component.login.proxy;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -10,10 +10,10 @@ import com.hyh.base_library.component.login.service.ILoginService;
 /**
  * created by curdyhuang on 2019-12-30
  */
-public class LoginServiceAdapter implements ILoginService {
+public class LoginServiceProxy implements ILoginService {
     private ILoginService mLoginService;
 
-    public LoginServiceAdapter() {
+    public LoginServiceProxy() {
         ILoginComponent loginComponent = ComponentFactory.getInstance().createLoginComponent();
         if(loginComponent!=null){
             mLoginService = loginComponent.getLoginService();

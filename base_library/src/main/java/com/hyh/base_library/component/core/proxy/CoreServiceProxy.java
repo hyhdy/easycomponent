@@ -1,4 +1,4 @@
-package com.hyh.base_library.component.core.adapter;
+package com.hyh.base_library.component.core.proxy;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -10,10 +10,10 @@ import com.hyh.base_library.component.core.service.ICoreService;
 /**
  * created by curdyhuang on 2019-12-30
  */
-public class CoreServiceAdapter implements ICoreService {
+public class CoreServiceProxy implements ICoreService {
     private ICoreService mCoreService;
 
-    public CoreServiceAdapter() {
+    public CoreServiceProxy() {
         ICoreComponent coreComponent = ComponentFactory.getInstance().createCoreComponent();
         if(coreComponent!=null){
             mCoreService = coreComponent.getCoreService();
